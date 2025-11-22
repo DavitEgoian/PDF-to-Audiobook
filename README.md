@@ -1,43 +1,66 @@
-# PDF to Audiobook
+# 🎧 PDF to Audiobook
 
-Python script that takes a PDF file and converts it into speech.
+A robust Python desktop application that transforms written PDF documents into spoken audio files, allowing you to listen to your books and papers on the go.
 
 ## 📝 Project Overview
-This desktop tool converting text-to-speech (via **pyttsx3**) to turn PDFs into audio files. Users can load a PDF, view its text in a Tkinter interface, and save an MP3 file with a default timestamped filename and a progress bar to track downloading progress.
+
+This tool provides a seamless interface for converting text-to-speech without requiring an internet connection or paid APIs. Users can load a PDF, preview the extracted text in a GUI editor to make necessary adjustments, and export the result as an MP3 file. It leverages `pyttsx3` for synthesis and `PyPDF2` for extraction.
 
 ## 🚀 Features
 
-- **Offline TTS**: Uses `pyttsx3`, so there’s no need for external APIs or internet access.  
-- **PDF Extraction**: Powered by **PyPDF2** for reliable text extraction across multiple pages.  
-- **Live Preview**: Inspect the PDF text in the built-in editor before exporting.  
-- **Progress Indicator**: An indeterminate progress bar appears during conversion, then hides automatically.  
-- **Automatic Filename**: Generates a default `audiobook_YYYYMMDD_HHMMSS.mp3` to save time.
+- **Offline Text-to-Speech**: Powered by **pyttsx3**, enabling completely offline conversion with no API limits or costs.
+- **PDF Text Extraction**: Uses **PyPDF2** to reliably extract text content from multi-page documents.
+- **Interactive Preview**: Review and edit the extracted text within the app before conversion to ensure audio accuracy.
+- **Smart UI**: Built with **Tkinter**, featuring extraction feedback and a progress bar that indicates processing status.
+- **Auto-Export**: Automatically generates timestamped filenames (e.g., `audiobook_YYYYMMDD.mp3`) for quick saving.
 
 ## 💻 Installation & Usage
 
-1. **Clone or download** this repository.  
-2. Install dependencies:
+### Prerequisites
+- Python 3.x
+
+### Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/DavitEgoian/PDF-to-Audiobook.git
+   cd PDF-to-Audiobook
+   ```
+
+2. **Create a virtual environment (Recommended)**
+   ```bash
+   python -m venv venv
+   # Windows
+   venv\Scripts\activate
+   # macOS/Linux
+   source venv/bin/activate
+   ```
+
+3. **Install dependencies**
    ```bash
    pip install PyPDF2 pyttsx3
    ```
-3. Launch the app:
+
+4. **Run the application**
    ```bash
    python main.py
    ```
-   
+
 ## 📂 Project Structure
 
-```
+```text
 PDF-to-Audiobook/
-├── pdf_extractor.py   # Extracts text from a PDF using PyPDF2
-├── tts_handler.py     # Wraps pyttsx3 for local text-to-speech synthesis
-└── main.py            # Tkinter GUI: load PDF, preview text, and save audio
+├── pdf_extractor.py   # Logic: Extracts raw text from PDF pages using PyPDF2
+├── tts_handler.py     # Logic: Wrapper for pyttsx3 engine configuration and saving
+└── main.py            # Interface: Tkinter GUI for file loading, editing, and controls
 ```
 
 ## ⚙️ Customization
 
-- **Voice & Rate**: Tweak `tts_handler.py` to change voice, speaking rate, or volume via `pyttsx3` settings.  
-- **GUI Layout**: Modify `main.py`—adjust fonts, widget placement, or add playback controls.  
-- **Output Format**: Change the default filename pattern in `main.py`’s `default_filename` logic.
+- **Voice Settings**: Modify `tts_handler.py` to adjust the speaking rate (words per minute), volume, or switch between male/female system voices.
+- **Extraction Logic**: Update `pdf_extractor.py` if you need to handle specific PDF layouts or encrypted files.
+- **Output Format**: Change the default naming convention in `main.py` to suit your file organization needs.
 
----
+## 📄 License
+
+This project is open source and available for personal and educational use.
